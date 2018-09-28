@@ -100,7 +100,7 @@ class Images extends Component {
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={1000}
           >
-          <img src={images[0]} key={dataIndex} alt={dataIndex} />
+          <img src={window.location.origin + images[0]} key={dataIndex} alt={dataIndex} />
         </CSSTransitionGroup>
       </div>
     )
