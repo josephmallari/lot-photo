@@ -89,7 +89,7 @@ class Images extends Component {
     // TODO: function conditionals here
     const toggleNextImage = this.props.toggleNextImage;
 
-    console.log(images[0]);
+    console.log(window.location.origin + images[0]);
 
     return (
       <div className="lot-photo__image" onClick={() => {this.nextImage()}}>
