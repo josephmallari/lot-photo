@@ -88,9 +88,9 @@ class Images extends Component {
 
     // TODO: function conditionals here
     const toggleNextImage = this.props.toggleNextImage;
-
-    console.log('images path', window.location.origin + images[0]);
-
+    // console.log('images path', window.location.origin + images[0]);
+    console.log(process.env.PUBLIC_URL + images[0]);
+    
     return (
       <div className="lot-photo__image" onClick={() => {this.nextImage()}}>
         <CSSTransitionGroup
@@ -100,7 +100,7 @@ class Images extends Component {
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={1000}
           >
-          <img src={window.location.origin + images[0]} key={dataIndex} alt={dataIndex} />
+          <img src={process.env.PUBLIC_URL + images[0]} key={dataIndex} alt={dataIndex} />
         </CSSTransitionGroup>
       </div>
     )
