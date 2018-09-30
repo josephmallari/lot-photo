@@ -33,8 +33,6 @@ class Images extends Component {
   }
 
   componentDidUpdate() {
-    // TODO: update function for article
-
     if (this.props.articleState) {
       const img = document.querySelector('.lot-photo__image img');
       img.src = this.state.images[this.state.counter];
@@ -43,7 +41,6 @@ class Images extends Component {
 
   nextImage() {
     if (!this.props.articleState) {
-      // TODO: dry update state to callback
       let randomIndex = Math.floor(Math.random() * 27);
       this.setState((prevState) => {
         return { index: randomIndex };
@@ -83,13 +80,10 @@ class Images extends Component {
 
     this.state.index ? dataIndex = this.state.index : dataIndex = 0;
     let imagesPath = data[dataIndex];
-
     let images = [imagesPath.image_one, imagesPath.image_two, imagesPath.image_three];
+    let imageVal = window.location.origin + images[0];
 
-    // TODO: function conditionals here
     const toggleNextImage = this.props.toggleNextImage;
-    // console.log('images path', window.location.origin + images[0]);
-    console.log(process.env.PUBLIC_URL + images[0]);
     
     return (
       <div className="lot-photo__image" onClick={() => {this.nextImage()}}>
@@ -100,7 +94,7 @@ class Images extends Component {
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={1000}
           >
-          <img src={process.env.PUBLIC_URL + images[0]} key={dataIndex} alt={dataIndex} />
+          <img src={imageVal} key={dataIndex} alt={dataIndex} />
         </CSSTransitionGroup>
       </div>
     )
