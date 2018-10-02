@@ -5,6 +5,7 @@ import Nav from './Nav.js';
 import Info from './Info.js';
 import './App.css';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import json from './data';
 
 class App extends Component {
     constructor(props) {
@@ -21,20 +22,11 @@ class App extends Component {
         this.toggleArticle = this.toggleArticle.bind(this);
         this.prevArticle = this.prevArticle.bind(this);
         this.nextArticle = this.nextArticle.bind(this);
-        // this.toggleNextImage= this.toggleNextImage.bind(this);
     }
 
     toggleArticle(key) {    
         this.setState({ articleVisible: true, namesVisible: false, imagesVisible: false, index: key.i });
     }
-
-    // toggleNextImage() {
-    //     if (!this.state.articleVisible) {
-    //         console.log('clicking home');
-    //     } else {
-    //         console.log('clicking article');
-    //     }
-    // }
 
     prevArticle() {
         this.setState((prevState, props) => {
@@ -56,6 +48,26 @@ class App extends Component {
 
     render() {
         const index = this.state.index;
+
+        let imageArray = [];
+
+        json.artists.map((artist) => {
+          imageArray.push(artist.image_one);
+          imageArray.push(artist.image_two);
+          imageArray.push(artist.image_three);
+        });
+    
+        function preloadImages() {
+          for (let i = 0;i < imageArray.length;i++) {
+            let imageObj = new Image();
+            imageObj.src = process.env.PUBLIC_URL + imageArray[i];
+          }
+        }
+    
+        preloadImages();
+    
+        console.log('pre load test');
+        
         return ( 
             <section className="lot-photo__container">
                 <CSSTransitionGroup 

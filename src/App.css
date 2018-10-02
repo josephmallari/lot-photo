@@ -95,12 +95,12 @@
       left: 0;
       height: 100%;
       width: 100%;
-      opacity: .8; }
+      opacity: .9; }
       @media only screen and (min-width: 1024px) {
         .lot-photo__artists-list > span:before {
           height: 100vh;
           width: 100vw;
-          top: 50px;
+          top: 10px;
           left: -50%; } }
 .lot-photo__container {
   font-family: folio;
@@ -138,7 +138,8 @@
 .lot-photo__image {
   margin: 80px auto;
   height: auto;
-  width: 300px; }
+  width: auto;
+  max-width: 400px; }
   .lot-photo__image img {
     height: 100%;
     width: 100%; }

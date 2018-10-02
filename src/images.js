@@ -60,7 +60,7 @@ class Images extends Component {
   newPos() {
     const artistImg = document.querySelector('.lot-photo__image');
     let randomPositionX = Math.random() * 600;
-    let randomPositionY = Math.random() * 150;
+    let randomPositionY = Math.random() * 75;
 
     setTimeout(() => {
       artistImg.style.marginLeft = `${randomPositionX}px`;
@@ -85,11 +85,24 @@ class Images extends Component {
 
     const toggleNextImage = this.props.toggleNextImage;
 
-    images.map(src => {
-      let image = new Image();
-      image.src = src;
-      return image;
+    let imageArray = [];
+
+    json.artists.map((artist) => {
+      imageArray.push(artist.image_one);
+      imageArray.push(artist.image_two);
+      imageArray.push(artist.image_three);
     });
+
+    function preloadImages() {
+      for (let i = 0;i < imageArray.length;i++) {
+        let imageObj = new Image();
+        imageObj.src = process.env.PUBLIC_URL + imageArray[i];
+      }
+    }
+
+    preloadImages();
+
+    console.log('pre load test');
 
     return (
       <div className="lot-photo__image" onClick={() => {this.nextImage()}}>
