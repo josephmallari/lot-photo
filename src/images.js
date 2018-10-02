@@ -35,7 +35,7 @@ class Images extends Component {
   componentDidUpdate() {
     if (this.props.articleState) {
       const img = document.querySelector('.lot-photo__image img');
-      img.src = this.state.images[this.state.counter];
+      img.src = process.env.PUBLIC_URL + this.state.images[this.state.counter];
     }
   }
 
@@ -81,10 +81,16 @@ class Images extends Component {
     this.state.index ? dataIndex = this.state.index : dataIndex = 0;
     let imagesPath = data[dataIndex];
     let images = [imagesPath.image_one, imagesPath.image_two, imagesPath.image_three];
-    let imageVal = window.location.origin + images[0];
+    let imageVal = process.env.PUBLIC_URL + images[0];
 
     const toggleNextImage = this.props.toggleNextImage;
-    
+
+    images.map(src => {
+      let image = new Image();
+      image.src = src;
+      return image;
+    });
+
     return (
       <div className="lot-photo__image" onClick={() => {this.nextImage()}}>
         <CSSTransitionGroup
