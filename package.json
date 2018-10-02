@@ -20,7 +20,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "deploy:prod": "npm run build css && npm run build"
+    "deploy:prod": "npm run build css && npm run build && rsync -av build/ root@68.183.24.87:/var/www/html"
   },
   "devDependencies": {
     "gh-pages": "^1.2.0"
