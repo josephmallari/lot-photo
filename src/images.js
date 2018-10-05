@@ -85,25 +85,6 @@ class Images extends Component {
 
     const toggleNextImage = this.props.toggleNextImage;
 
-    let imageArray = [];
-
-    json.artists.map((artist) => {
-      imageArray.push(artist.image_one);
-      imageArray.push(artist.image_two);
-      imageArray.push(artist.image_three);
-    });
-
-    function preloadImages() {
-      for (let i = 0;i < imageArray.length;i++) {
-        let imageObj = new Image();
-        imageObj.src = process.env.PUBLIC_URL + imageArray[i];
-      }
-    }
-
-    preloadImages();
-
-    console.log('pre load test');
-
     return (
       <div className="lot-photo__image" onClick={() => {this.nextImage()}}>
         <CSSTransitionGroup

@@ -36,7 +36,7 @@ class Article extends Component {
             <div className="lot-photo__article__info--stage-name lot-photo__article__header">
               SHOW NAME 
               <div className="lot-photo__article__answer">
-                {dataIndex.stage_name}
+                {dataIndex.show_name}
               </div>
            </div> 
            <div className="lot-photo__article__info--real-name lot-photo__article__header">

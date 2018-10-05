@@ -32,7 +32,7 @@ class Nav extends Component {
             this.setState({isMenuActive: !this.state.isMenuActive})}>
               menu
           </li>
-          <li className="lot-photo__names" onClick={() => this.setState({namesVisible: !this.state.namesVisible})}>names</li>
+          <li className="lot-photo__names" onClick={() => this.setState({namesVisible: !this.state.namesVisible})}>articles</li>
           <CSSTransitionGroup
             transitionName="animate"
             transitionEnterTimeout={300}

@@ -57,17 +57,19 @@ class App extends Component {
           imageArray.push(artist.image_three);
         });
     
-        function preloadImages() {
-          for (let i = 0;i < imageArray.length;i++) {
-            let imageObj = new Image();
-            imageObj.src = process.env.PUBLIC_URL + imageArray[i];
-          }
-        }
+        // function preloadImages() {
+        //   for (let i = 0;i < imageArray.length;i++) {
+        //     let imageObj = new Image();
+        //     imageObj.src = process.env.PUBLIC_URL + imageArray[i];
+        //   }
+        // }
+
+        imageArray.forEach((picture) => {
+            const img = new Image();
+            img.src = picture
+            img.src = process.env.PUBLIC_URL + picture;
+        });
     
-        preloadImages();
-    
-        console.log('pre load test');
-        
         return ( 
             <section className="lot-photo__container">
                 <CSSTransitionGroup 
