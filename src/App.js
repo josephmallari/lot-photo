@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Images from './images.js';
-import Article from './article.js';
+import Images from './Images.js';
+import Article from './Article.js';
 import Nav from './Nav.js';
 import Info from './Info.js';
 import './App.css';

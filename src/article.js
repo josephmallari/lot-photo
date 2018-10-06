@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Images from './images.js';
+import Images from './Images.js';
 import './App.css';
 import json from './data';
 

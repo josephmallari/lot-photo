@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './App.css';
-import Names from './names.js';
+import Names from './Names.js';
 
 class Nav extends Component {
   constructor(props) {
