@@ -61,6 +61,12 @@ class App extends Component {
             const img = new Image();
             img.src = picture
             img.src = process.env.PUBLIC_URL + picture;
+
+            console.log(img);
+            
+            img.onload = () => {
+                console.log('image loaded');
+            }
         });
     
         return ( 
