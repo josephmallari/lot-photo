@@ -16,12 +16,15 @@ class App extends Component {
             imagesVisible: true,
             articleVisible: false,
             isInfoVisible: false,
-            index: 0
+            index: 0,
+            counter: 1
         }
 
         this.toggleArticle = this.toggleArticle.bind(this);
         this.prevArticle = this.prevArticle.bind(this);
         this.nextArticle = this.nextArticle.bind(this);
+        this.resetHome = this.resetHome.bind(this);
+        this.clickCounter = this.clickCounter.bind(this);
     }
 
     toggleArticle(key) {    
@@ -46,9 +49,20 @@ class App extends Component {
         });
     }
 
+    resetHome() {
+        this.setState((prevState) => {
+            return { articleVisible: false, imagesVisible: true }
+        });
+    }
+
+    clickCounter() {
+        // this.setState({ counter: this.state.counter + 1});
+    }
+
     render() {
         const index = this.state.index;
 
+        // TODO: optimize images
         let imageArray = [];
 
         json.artists.map((artist) => {
@@ -57,6 +71,7 @@ class App extends Component {
           imageArray.push(artist.image_three);
         });
     
+        // TODO: optimize images
         imageArray.forEach((picture) => {
             const img = new Image();
             img.src = picture
@@ -68,7 +83,7 @@ class App extends Component {
                 console.log('image loaded');
             }
         });
-    
+
         return ( 
             <section className="lot-photo__container">
                 <CSSTransitionGroup 
@@ -77,19 +92,19 @@ class App extends Component {
                     transitionAppearTimeout={2000}
                     transitionEnterTimeout={2000}
                     transitionLeaveTimeout={2000}>
-                    <Nav key="nav" triggerArticle={this.toggleArticle} namesState={this.state.namesVisible} /> 
+                    <Nav key="nav" triggerArticle={this.toggleArticle} namesState={this.state.namesVisible} resetHome={this.resetHome} /> 
                 </CSSTransitionGroup >
                 <div className="lot-photo__body">
                     <CSSTransitionGroup transitionName="animate"
                         transitionEnterTimeout={300}
                         transitionLeaveTimeout={300} >
-                        {this.state.imagesVisible ? <Images index={index} articleState={this.state.articleVisible} toggleNextImage={this.toggleNextImage} /> : null} 
+                        {this.state.imagesVisible ? <Images clickCounter={this.clickCounter} index={index} articleState={this.state.articleVisible} toggleNextImage={this.toggleNextImage} /> : null} 
                         {this.state.articleVisible ? <Article articleState={this.state.articleVisible} index={this.state.index} triggerPrev={this.prevArticle} triggerNext={this.nextArticle} /> : null} 
                         {this.state.isInfoVisible ? <Info/> : null } 
                     </CSSTransitionGroup>
                 </div> 
-                <div className="lot-photo__counter">
-                   COUNTER 
+                <div className="lot-photo__counter" onClick={() => {this.clickCounter()}}>
+                    {this.state.counter} / 27
                 </div>
             </section>
         );

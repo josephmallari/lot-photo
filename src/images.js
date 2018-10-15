@@ -43,9 +43,10 @@ class Images extends Component {
     if (!this.props.articleState) {
       let randomIndex = Math.floor(Math.random() * 27);
       this.setState((prevState) => {
-        return { index: randomIndex };
+        return { index: randomIndex, counter: prevState.counter + 1 };
       });
 
+      // console.log(this.state.counter);
       this.newPos();
     } else {
       this.setState((prevState, props) => {

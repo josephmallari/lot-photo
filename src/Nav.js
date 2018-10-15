@@ -12,17 +12,12 @@ class Nav extends Component {
       imagesVisible: true,
       articleVisible: false
     }
+    console.log('props', this.props);
   }
 
   componentWillReceiveProps() {
     this.setState({
       namesVisible: this.props.namesState
-    })
-  }
-
-  resetHome() {
-    this.setState((prevState) => {
-      return { isMenuActive: false, namesVisible: false, imagesVisible: false, articleVisible: false }
     })
   }
 
@@ -32,8 +27,7 @@ class Nav extends Component {
     return (
       <nav className={menuClassName} key="navs">
         <ul>
-          <li className="lot-photo__home" onClick={() => this.resetHome()}>the lot photo</li>
-            {/* this.setState({ namesVisible: false, imagesVisible: true, articleVisible: false })}>the lot photo</li> */}
+          <li className="lot-photo__home" onClick={() => {this.props.resetHome()}}>the lot photo</li>
           <li className="lot-photo__menu" onClick={() =>
             this.setState({isMenuActive: !this.state.isMenuActive})}>
               menu
