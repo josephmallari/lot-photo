@@ -42,8 +42,8 @@
 
 .animate-nav-appear.animate-nav-appear-active {
   opacity: 1;
-  transition: opacity 1s ease-in;
-  transition-delay: .7s;
+  transition: opacity .6s ease-in;
+  transition-delay: .3s;
 }
 
 body {
@@ -53,6 +53,11 @@ body {
 }
 
 .lot-photo {
+  &__counter {
+    position: fixed;
+    bottom: 40px;
+  }
+
   &__article {
     &__answer {
       font-family: 'serif';
@@ -86,8 +91,7 @@ body {
 
       &--right {
         float: right;
-        max-width: 90px;
-        white-space: nowrap;
+        text-align: right;
       }
 
       &__desc {
@@ -222,6 +226,7 @@ body {
 
   &__number {
     font-family: 'sans-serif';
+    padding-right: 3px;
   }
 
   @media only screen and (min-width: 768px) {
@@ -313,7 +318,7 @@ body {
     }
 
     &__artist {
-      margin-bottom: 5px;
+      margin: 0 20px 5px 0;
     }
 
     &__artists-list {

@@ -92,7 +92,8 @@ class Images extends Component {
           transitionAppear={true}
           transitionAppearTimeout={700}
           transitionEnterTimeout={1000}
-          transitionLeaveTimeout={1000}
+          transitionLeaveTimeout={0}
+          transitionLeave={false}
           >
           <img src={imageVal} key={dataIndex} alt={dataIndex} />
         </CSSTransitionGroup>

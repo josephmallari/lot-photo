@@ -20,14 +20,20 @@ class Nav extends Component {
     })
   }
 
+  resetHome() {
+    this.setState((prevState) => {
+      return { isMenuActive: false, namesVisible: false, imagesVisible: false, articleVisible: false }
+    })
+  }
+
   render() {
     let menuClassName = `lot-photo__nav` + (this.state.isMenuActive ? ` lot-photo__nav--active` : ``);
 
     return (
       <nav className={menuClassName} key="navs">
         <ul>
-          <li className="lot-photo__home" onClick={() =>
-            this.setState({ namesVisible: false, imagesVisible: true, articleVisible: false})}>the lot photo</li>
+          <li className="lot-photo__home" onClick={() => this.resetHome()}>the lot photo</li>
+            {/* this.setState({ namesVisible: false, imagesVisible: true, articleVisible: false })}>the lot photo</li> */}
           <li className="lot-photo__menu" onClick={() =>
             this.setState({isMenuActive: !this.state.isMenuActive})}>
               menu

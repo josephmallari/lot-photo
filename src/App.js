@@ -63,7 +63,7 @@ class App extends Component {
             img.src = process.env.PUBLIC_URL + picture;
 
             console.log(img);
-            
+
             img.onload = () => {
                 console.log('image loaded');
             }
@@ -88,6 +88,9 @@ class App extends Component {
                         {this.state.isInfoVisible ? <Info/> : null } 
                     </CSSTransitionGroup>
                 </div> 
+                <div className="lot-photo__counter">
+                   COUNTER 
+                </div>
             </section>
         );
     }
