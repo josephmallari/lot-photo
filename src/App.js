@@ -26,7 +26,6 @@ class App extends Component {
         this.resetHome = this.resetHome.bind(this);
         this.clickCounter = this.clickCounter.bind(this);
         this.count = 1;
-        // this.hover = this.hover.bind(this);
     }
 
     toggleArticle(key) {    
@@ -41,10 +40,6 @@ class App extends Component {
             return { index: prevState.index - 1 }
         });
     }
-
-    // hover(key) {
-    //     console.log(key);
-    // }
 
     nextArticle() {
         this.setState((prevState, props) => {

@@ -52,6 +52,10 @@ body {
   }
 }
 
+.relative {
+  position: relative;
+}
+
 .lot-photo {
   &__counter {
     position: fixed;

@@ -38,6 +38,9 @@
   body {
     overflow: hidden; } }
 
+.relative {
+  position: relative; }
+
 .lot-photo__counter {
   position: fixed;
   bottom: 40px; }
