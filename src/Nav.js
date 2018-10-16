@@ -12,7 +12,6 @@ class Nav extends Component {
       imagesVisible: true,
       articleVisible: false
     }
-    console.log('props', this.props);
   }
 
   componentWillReceiveProps() {
@@ -38,7 +37,7 @@ class Nav extends Component {
             transitionEnterTimeout={300}
             transitionLeaveTimeout={300}
             >
-            {this.state.namesVisible ? <Names triggerArticle={this.props.triggerArticle} /> : null}
+            {this.state.namesVisible ? <Names triggerArticle={this.props.triggerArticle} hover={this.props.hover} /> : null}
           </CSSTransitionGroup>
           {/* <li className="lot-photo__book">book</li> */}
           <li className="lot-photo__information">information</li>

@@ -25,6 +25,8 @@ class App extends Component {
         this.nextArticle = this.nextArticle.bind(this);
         this.resetHome = this.resetHome.bind(this);
         this.clickCounter = this.clickCounter.bind(this);
+        this.count = 1;
+        this.hover = this.hover.bind(this);
     }
 
     toggleArticle(key) {    
@@ -38,6 +40,10 @@ class App extends Component {
             }
             return { index: prevState.index - 1 }
         });
+    }
+
+    hover(key) {
+        console.log(key);
     }
 
     nextArticle() {
@@ -55,8 +61,10 @@ class App extends Component {
         });
     }
 
+    // TODO: reset when 0
     clickCounter() {
-        // this.setState({ counter: this.state.counter + 1});
+        this.count ++;
+        document.querySelector('.counter').innerHTML = this.count;
     }
 
     render() {
@@ -92,7 +100,7 @@ class App extends Component {
                     transitionAppearTimeout={2000}
                     transitionEnterTimeout={2000}
                     transitionLeaveTimeout={2000}>
-                    <Nav key="nav" triggerArticle={this.toggleArticle} namesState={this.state.namesVisible} resetHome={this.resetHome} /> 
+                    <Nav key="nav" hover={this.hover} triggerArticle={this.toggleArticle} namesState={this.state.namesVisible} resetHome={this.resetHome} /> 
                 </CSSTransitionGroup >
                 <div className="lot-photo__body">
                     <CSSTransitionGroup transitionName="animate"
@@ -104,7 +112,7 @@ class App extends Component {
                     </CSSTransitionGroup>
                 </div> 
                 <div className="lot-photo__counter" onClick={() => {this.clickCounter()}}>
-                    {this.state.counter} / 27
+                    <span className="counter">1</span> / 27
                 </div>
             </section>
         );

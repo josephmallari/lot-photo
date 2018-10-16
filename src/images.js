@@ -46,8 +46,8 @@ class Images extends Component {
         return { index: randomIndex, counter: prevState.counter + 1 };
       });
 
-      // console.log(this.state.counter);
       this.newPos();
+      this.props.clickCounter();
     } else {
       this.setState((prevState, props) => {
         if (prevState.counter === 2) {
