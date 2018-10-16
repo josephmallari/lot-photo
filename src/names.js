@@ -8,13 +8,12 @@ class Names extends Component {
     super(props);
 
     this.state = {
-      hover: false
+      hover: false,
+      index: 0
     }
 
     this.keyVal = this.keyVal.bind(this);
     this.hoverArticle = this.hoverArticle.bind(this);
-
-    console.log(this.props.index);
   }
 
   keyVal(i) {
@@ -22,11 +21,12 @@ class Names extends Component {
   }
 
   hoverArticle(i) {
-    this.props.hover(i);
+    this.setState((state) => ({
+      index: i,
+      hover: true
+    }));
 
-    this.setState((prevState) => {
-      return { hover: true };
-    });
+    console.log(this.state.index);
   }
 
   render() {
@@ -55,7 +55,7 @@ class Names extends Component {
           {name}
         </CSSTransitionGroup>
         {/* add image component here */}
-        {this.state.hover ? <Images /> : null}
+        {this.state.hover ? <Images index={this.state.index} /> : null}
       </div>
     )
   }

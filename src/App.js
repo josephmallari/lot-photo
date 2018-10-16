@@ -26,7 +26,7 @@ class App extends Component {
         this.resetHome = this.resetHome.bind(this);
         this.clickCounter = this.clickCounter.bind(this);
         this.count = 1;
-        this.hover = this.hover.bind(this);
+        // this.hover = this.hover.bind(this);
     }
 
     toggleArticle(key) {    
@@ -42,9 +42,9 @@ class App extends Component {
         });
     }
 
-    hover(key) {
-        console.log(key);
-    }
+    // hover(key) {
+    //     console.log(key);
+    // }
 
     nextArticle() {
         this.setState((prevState, props) => {
@@ -100,7 +100,7 @@ class App extends Component {
                     transitionAppearTimeout={2000}
                     transitionEnterTimeout={2000}
                     transitionLeaveTimeout={2000}>
-                    <Nav key="nav" hover={this.hover} triggerArticle={this.toggleArticle} namesState={this.state.namesVisible} resetHome={this.resetHome} /> 
+                    <Nav key="nav" triggerArticle={this.toggleArticle} namesState={this.state.namesVisible} resetHome={this.resetHome} /> 
                 </CSSTransitionGroup >
                 <div className="lot-photo__body">
                     <CSSTransitionGroup transitionName="animate"
