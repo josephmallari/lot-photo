@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './App.css';
-import Names from './names.js';
+import Names from './Names.js';
 
 class Nav extends Component {
   constructor(props) {
@@ -26,13 +26,12 @@ class Nav extends Component {
     return (
       <nav className={menuClassName} key="navs">
         <ul>
-          <li className="lot-photo__home" onClick={() =>
-            this.setState({ namesVisible: false, imagesVisible: true, articleVisible: false})}>the lot photo</li>
+          <li className="lot-photo__home" onClick={() => {this.props.resetHome()}}>the lot photo</li>
           <li className="lot-photo__menu" onClick={() =>
             this.setState({isMenuActive: !this.state.isMenuActive})}>
               menu
           </li>
-          <li className="lot-photo__names" onClick={() => this.setState({namesVisible: !this.state.namesVisible})}>names</li>
+          <li className="lot-photo__names" onClick={() => this.setState({namesVisible: !this.state.namesVisible})}>articles</li>
           <CSSTransitionGroup
             transitionName="animate"
             transitionEnterTimeout={300}

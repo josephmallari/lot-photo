@@ -43,10 +43,11 @@ class Images extends Component {
     if (!this.props.articleState) {
       let randomIndex = Math.floor(Math.random() * 27);
       this.setState((prevState) => {
-        return { index: randomIndex };
+        return { index: randomIndex, counter: prevState.counter + 1 };
       });
 
       this.newPos();
+      this.props.clickCounter();
     } else {
       this.setState((prevState, props) => {
         if (prevState.counter === 2) {
@@ -60,7 +61,7 @@ class Images extends Component {
   newPos() {
     const artistImg = document.querySelector('.lot-photo__image');
     let randomPositionX = Math.random() * 600;
-    let randomPositionY = Math.random() * 150;
+    let randomPositionY = Math.random() * 75;
 
     setTimeout(() => {
       artistImg.style.marginLeft = `${randomPositionX}px`;
@@ -85,20 +86,16 @@ class Images extends Component {
 
     const toggleNextImage = this.props.toggleNextImage;
 
-    images.map(src => {
-      let image = new Image();
-      image.src = src;
-      return image;
-    });
-
     return (
-      <div className="lot-photo__image" onClick={() => {this.nextImage()}}>
+      <div className={`lot-photo__image ${this.props.position ? this.props.position : ''}`} onClick={() => {this.nextImage()}}>
         <CSSTransitionGroup
           transitionName="animate"
           transitionAppear={true}
           transitionAppearTimeout={700}
           transitionEnterTimeout={1000}
-          transitionLeaveTimeout={1000}
+          transitionLeaveTimeout={0}
+          transitionLeave={false}
+          transitionEnter={this.props.transitionEnter}
           >
           <img src={imageVal} key={dataIndex} alt={dataIndex} />
         </CSSTransitionGroup>
