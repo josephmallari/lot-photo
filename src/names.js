@@ -55,7 +55,7 @@ class Names extends Component {
           {name}
         </CSSTransitionGroup>
         {/* add image component here */}
-        {this.state.hover ? <Images index={this.state.index} position={'relative'} /> : null}
+        {this.state.hover ? <Images index={this.state.index} position={'relative'} transitionEnter={false} transitionLeave={false}/> : null}
       </div>
     )
   }

@@ -87,7 +87,7 @@ class Images extends Component {
     const toggleNextImage = this.props.toggleNextImage;
 
     return (
-      <div className="lot-photo__image" onClick={() => {this.nextImage()}}>
+      <div className={`lot-photo__image ${this.props.position ? this.props.position : ''}`} onClick={() => {this.nextImage()}}>
         <CSSTransitionGroup
           transitionName="animate"
           transitionAppear={true}
@@ -95,6 +95,7 @@ class Images extends Component {
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={0}
           transitionLeave={false}
+          transitionEnter={this.props.transitionEnter}
           >
           <img src={imageVal} key={dataIndex} alt={dataIndex} />
         </CSSTransitionGroup>
