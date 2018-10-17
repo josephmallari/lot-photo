@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Images from './Images.js';
+import Images from './images.js';
 import './App.css';
 import json from './data';
 
@@ -36,7 +36,7 @@ class Article extends Component {
             <div className="lot-photo__article__info--stage-name lot-photo__article__header">
               SHOW NAME 
               <div className="lot-photo__article__answer">
-                {dataIndex.show_name}
+                {dataIndex.stage_name}
               </div>
            </div> 
            <div className="lot-photo__article__info--real-name lot-photo__article__header">
